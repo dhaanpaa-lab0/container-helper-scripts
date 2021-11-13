@@ -9,9 +9,9 @@ chmod -v a+x $INSTALL_BIN/*
 
 if [ ! -f /etc/profile.d/containerhelper-sysinstall.sh ]; then
     cat << PROFILE_SET > /etc/profile.d/containerhelper-sysinstall.sh
-    #!/usr/bin/env bash
-    PATH=\$PATH:$INSTALL_BIN
-    export PATH
-    PROFILE_SET
+#!/usr/bin/env bash
+PATH=\$PATH:$INSTALL_BIN
+export PATH
+PROFILE_SET
     chmod a+x /etc/profile.d/containerhelper-sysinstall.sh
 fi
