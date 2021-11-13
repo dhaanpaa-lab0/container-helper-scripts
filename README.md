@@ -2,13 +2,16 @@
 
 Note: ***Should Be able to use with podman also***
 
+
+## Script Prefixes
 | Prefix | Description |
 |--------|-------------|
 | cnt | Both Docker & Podman |
 | pdm | Podman Only |
 | dkr | Docker Only |
+| spt | Support Scripts |
 
-
+## Scripts
 | Script Name | Description |
 |-------------|-------------|
 | dkr-add-user-to-docker-group | Add User for usage of docker without sudo |
@@ -36,3 +39,5 @@ Note: ***Should Be able to use with podman also***
 | cnt-start-image-with-shell | Start a new container and then drop to shell |
 | cnt-stop-container | Stop a container |
 | pdm-create-docker-link | Create new docker link for a podman host |
+| spt-install | Install Scripts System Wide |
+| spt-install-user | Install Scripts Just for current user |
