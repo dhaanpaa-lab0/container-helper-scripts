@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+if [ ! -f /usr/bin/podman ]; then
+  echo "PODman is not installed"
+  exit 1
+fi
+
+if [ ! -L /usr/bin/docker ]; then
+  echo "Docker is not a symlink"
+  exit 1
+fi
+
+sudo ln -sfv /usr/bin/podman /usr/bin/docker
