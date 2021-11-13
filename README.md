@@ -2,30 +2,37 @@
 
 Note: ***Should Be able to use with podman also***
 
+| Prefix | Description |
+|--------|-------------|
+| cnt | Both Docker & Podman |
+| pdm | Podman Only |
+| dkr | Docker Only |
+
+
 | Script Name | Description |
 |-------------|-------------|
 | dkr-add-user-to-docker-group | Add User for usage of docker without sudo |
-| dkr-build-dockerfile | Build Docker image for docker file |
-| dkr-create-dockerfile | Create New DockerFile with git support |
-| dkr-create-generic-volume | Create Volume |
-| dkr-create-local-volume | Create Volume from local directory |
-| dkr-create-mysql-server | Create Mysql Server |
-| dkr-create-oracle-xe-server | Create Oracle XE Server |
-| dkr-create-postgres-server | Create Postgres Server |
-| dkr-create-sql-server | Create Microsoft SQL Server |
-| dkr-create-mongo-server | Create MongoDB Server (Percona) |
-| dkr-delete-container | Delete Container |
-| dkr-delete-image | Delete Image |
-| dkr-delete-volume | Delete Local Docker Volume |
-| dkr-list-containers | List Containers |
-| dkr-list-images | List Images |
-| dkr-list-volumes | List Volumes |
-| dkr-registry-installer | Craete Docker Registry on server |
-| dkr-run-bash-in-container | Start a bash shell in container |
-| dkr-run-sh-in-container | Start generic shell in container |
-| dkr-run-zsh-in-container | Start ZSH shell in container |
-| dkr-start-container | Start a contaienr that was stopped |
-| dkr-start-image | Start a new container |
-| dkr-start-image-with-shell | Start a new container and then drop to shell |
-| dkr-stop-container | Stop a container |
+| cnt-build-dockerfile | Build Docker image for docker file |
+| cnt-create-dockerfile | Create New DockerFile with git support |
+| cnt-create-generic-volume | Create Volume |
+| cnt-create-local-volume | Create Volume from local directory |
+| cnt-create-mongo-server | Create MongoDB Server (Percona) |
+| cnt-create-mysql-server | Create Mysql Server |
+| cnt-create-oracle-xe-server | Create Oracle XE Server |
+| cnt-create-postgres-server | Create Postgres Server |
+| cnt-create-sql-server | Create Microsoft SQL Server |
+| cnt-delete-container | Delete Container |
+| cnt-delete-image | Delete Image |
+| cnt-delete-volume | Delete Local Docker Volume |
+| cnt-list-containers | List Containers |
+| cnt-list-images | List Images |
+| cnt-list-volumes | List Volumes |
+| cnt-registry-installer | Craete Docker Registry on server |
+| cnt-run-bash-in-container | Start a bash shell in container |
+| cnt-run-sh-in-container | Start generic shell in container |
+| cnt-run-zsh-in-container | Start ZSH shell in container |
+| cnt-start-container | Start a contaienr that was stopped |
+| cnt-start-image | Start a new container |
+| cnt-start-image-with-shell | Start a new container and then drop to shell |
+| cnt-stop-container | Stop a container |
 | pdm-create-docker-link | Create new docker link for a podman host |
