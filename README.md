@@ -11,8 +11,9 @@ Note: ***Should Be able to use with podman also***
 | dkr-create-local-volume | Create Volume from local directory |
 | dkr-create-mysql-server | Create Mysql Server |
 | dkr-create-oracle-xe-server | Create Oracle XE Server |
-| dkr-create-postgres-server | Create Postgres |
+| dkr-create-postgres-server | Create Postgres Server |
 | dkr-create-sql-server | Create Microsoft SQL Server |
+| dkr-create-mongo-server | Create MongoDB Server (Percona) |
 | dkr-delete-container | Delete Container |
 | dkr-delete-image | Delete Image |
 | dkr-delete-volume | Delete Local Docker Volume |
