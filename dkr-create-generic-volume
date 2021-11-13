@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+DKR_VOL_NAME=$1
+docker volume create --name $DKR_VOL_NAME 
+

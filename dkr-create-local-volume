@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+DKR_VOLUME_NAME=$1
+DKR_VOLUME_PATH=$2
+docker volume create --name $DKR_VOLUME_NAME --opt type=none --opt device=$DKR_VOLUME_PATH --opt o=bind
+

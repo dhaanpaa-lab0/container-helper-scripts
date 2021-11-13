@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+DKR_IMAGE=mysql:latest
+DKR_HOST_PORT=$1
+DKR_CNT_NAME=$2
+DKR_DATA_PATH=dbcmys-$DKR_CNT_NAME-dvol
+
+if [ -z "$DKR_HOST_PORT" ]; then
+  echo "You must provide docker host port"
+  exit 1
+fi
+
+
+if [ -z "$DKR_CNT_NAME" ]; then
+  echo "You must provide container name"
+  exit 1
+fi
+
+docker run --name $DKR_CNT_NAME \
+  -p $DKR_HOST_PORT:3306 \
+  -v $DKR_DATA_PATH:/var/lib/mysql \
+  -e MYSQL_RANDOM_ROOT_PASSWORD=1 \
+  -d $DKR_IMAGE
+echo "Waiting for container '$DKR_CNT_NAME' to start ... " 
+sleep 30 
+
+docker logs $DKR_CNT_NAME | grep "GENERATED ROOT PASSWORD"
+

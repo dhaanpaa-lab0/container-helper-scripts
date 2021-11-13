@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+REG_ROOT=$1
+sudo rm -rfv $REG_ROOT
+REG_ROOT_FILE=$REG_ROOT/docker-compose.yml
+REG_ROOT_AUTH_DIR=$REG_ROOT/auth
+REG_ROOT_AUTH_FILE=$REG_ROOT_AUTH_DIR/registry.password
+REG_ROOT_DATA_DIR=$REG_ROOT/data
+sudo mkdir -pv $REG_ROOT_AUTH_DIR
+sudo mkdir -pv $REG_ROOT_DATA_DIR
+
+if [ -f /usr/bin/apt ]; then
+  sudo apt install apache2-utils -y
+fi
+if [ -f /usr/bin/dnf ]; then
+  sudo dnf install -y httpd-tools
+fi
+
+sudo chown -R -v denadmin:denplatform $REG_ROOT
+
+htpasswd -Bc $REG_ROOT_AUTH_FILE admin
+cat << COMP | tee $REG_ROOT_FILE
+version: '3'
+
+services:
+  registry:
+    restart: always
+    image: registry:2
+    ports:
+    - "5000:5000"
+    environment:
+      REGISTRY_AUTH: htpasswd
+      REGISTRY_AUTH_HTPASSWD_REALM: Registry
+      REGISTRY_AUTH_HTPASSWD_PATH: /auth/registry.password
+      REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /data
+    volumes:
+      - $REG_ROOT_AUTH_DIR:/auth
+      - $REG_ROOT_DATA_DIR:/data
+COMP
+
+cd $REG_ROOT
+docker-compose up -d

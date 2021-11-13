@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+docker run -it $1  /usr/bin/bash 

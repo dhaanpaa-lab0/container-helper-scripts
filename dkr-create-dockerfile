@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+BASE_DIR=`pwd`
+mkdir -pv $BASE_DIR/$1
+touch $BASE_DIR/$1/Dockerfile
+cd $BASE_DIR/$1
+git init

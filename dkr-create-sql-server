@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+DKR_IMAGE=mcr.microsoft.com/mssql/server:2019-latest
+DKR_HOST_PORT=$1
+DKR_CNT_NAME=$2
+DKR_DATA_PATH=dbss-$DKR_CNT_NAME
+
+if [ -z "$DKR_HOST_PORT" ]; then
+  echo "You must provide docker host port"
+  exit 1
+fi
+
+
+if [ -z "$DKR_CNT_NAME" ]; then
+  echo "You must provide container name"
+  exit 1
+fi
+
+PGN=`pwgen -1 15`
+echo "MSSQL: SA Password Is '$PGN'"
+echo "MSSQL: Create New data directory"
+echo "MSSQL: Craete Data Volume: $DKR_DATA_PATH"
+
+docker run --name $DKR_CNT_NAME \
+  -e "ACCEPT_EULA=Y" \
+  -e "SA_PASSWORD=$PGN" \
+  -p $DKR_HOST_PORT:1433 \
+  -v $DKR_DATA_PATH:/var/opt/mssql \
+  -d $DKR_IMAGE
+echo "Waiting for container '$DKR_CNT_NAME' to start ... " 
+
+docker logs $DKR_CNT_NAME 
+
